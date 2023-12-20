@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class GUI extends JFrame {
-    private JFrame addTaskFrame = new JFrame();
+    private JFrame addTaskFrame;
     private JPanel mainPanel = new JPanel();
     private JPanel sidePanel = new JPanel();
     private JPanel menuPanel = new JPanel(new GridLayout(2,4));
@@ -75,10 +75,11 @@ public class GUI extends JFrame {
         add(sideScrollPanel, BorderLayout.WEST);
         add(mainPanel, BorderLayout.EAST);
         setVisible(true);
+        addTaskFrame = new JFrame();
     }
 
 
-    public Task addTaskWindow(Task task){
+    public void addTaskWindow(Task task){
         addTaskFrame.add(addTaskMainPanel, BorderLayout.EAST);
         addTaskFrame.add(addTaskMenuPanel, BorderLayout.WEST);
 
@@ -96,7 +97,7 @@ public class GUI extends JFrame {
 
         if(task != null){
             addTaskMenuPanel.add(updateButton);
-        }else if (task == null) {
+        }else {
             addTaskMenuPanel.add(save);
         }
         revalidate();
@@ -105,7 +106,6 @@ public class GUI extends JFrame {
         addTaskMainPanel.setPreferredSize(new Dimension(400, 500));
         addTaskFrame.setSize(800,500);
         addTaskFrame.setVisible(true);
-        return null;
     }
 
     public void updateGridPane(List<Task> taskList) {

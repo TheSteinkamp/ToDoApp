@@ -29,7 +29,6 @@ public class ActionHandler implements ActionListener, MouseListener {
         if (e.getSource() instanceof JButton buttonClicked) {
 
             if (Objects.equals(buttonClicked.getText(), "Lägg till uppgift")) {
-                //gui.resetFrame(gui.getAddTaskFrame());
                 gui.addTaskWindow(null);
                 System.out.println("Tryckte på lägg till");
 
@@ -70,7 +69,6 @@ public class ActionHandler implements ActionListener, MouseListener {
                 gui.getMainPanel().repaint();
 
             } else if (Objects.equals(buttonClicked.getText(), "Kalender")) {
-                //gui.resetTextFields();
                 CalendarGUI g = new CalendarGUI();
                 System.out.println("Tryckte på kalender");
 
@@ -115,7 +113,6 @@ public class ActionHandler implements ActionListener, MouseListener {
                 System.out.println("Efter create task" + taskManager.getTaskList().size());
                 gui.createLabels("all");
                 gui.getAddTaskFrame().dispose();
-                gui.resetFrame(gui.getAddTaskFrame());
 
             } else if (Objects.equals(buttonClicked.getText(), "Uppdatera")) {
 
@@ -131,7 +128,6 @@ public class ActionHandler implements ActionListener, MouseListener {
                 }
                 gui.createLabels("all");
                 gui.getAddTaskFrame().dispose();
-                gui.resetFrame(gui.getAddTaskFrame());
                 System.out.println("Tryckte på uppdatera");
             }
         }
@@ -158,6 +154,7 @@ public class ActionHandler implements ActionListener, MouseListener {
         }
 
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {
