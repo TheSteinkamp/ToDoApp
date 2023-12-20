@@ -74,13 +74,11 @@ public class GUI extends JFrame {
         add(menuPanel, BorderLayout.NORTH);
         add(sideScrollPanel, BorderLayout.WEST);
         add(mainPanel, BorderLayout.EAST);
-
         setVisible(true);
     }
 
 
     public Task addTaskWindow(Task task){
-        addTaskFrame.dispose();
         addTaskFrame.add(addTaskMainPanel, BorderLayout.EAST);
         addTaskFrame.add(addTaskMenuPanel, BorderLayout.WEST);
 
@@ -95,22 +93,18 @@ public class GUI extends JFrame {
         addTaskMainPanel.add(descriptionArea);
         addTaskMenuPanel.add(datum);
         addTaskMainPanel.add(date);
-        revalidate();
-        repaint();
 
         if(task != null){
             addTaskMenuPanel.add(updateButton);
-            System.out.println("I task != null");
         }else if (task == null) {
             addTaskMenuPanel.add(save);
-            System.out.println("I task == null");
         }
+        revalidate();
+        repaint();
         addTaskMenuPanel.setPreferredSize(new Dimension(100, 500));
         addTaskMainPanel.setPreferredSize(new Dimension(400, 500));
         addTaskFrame.setSize(800,500);
         addTaskFrame.setVisible(true);
-        addTaskFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         return null;
     }
 
@@ -152,7 +146,6 @@ public class GUI extends JFrame {
             label.setOpaque(true);
             gridPane.add(label);
         }
-
         gridPane.repaint();
         gridPane.revalidate();
     }

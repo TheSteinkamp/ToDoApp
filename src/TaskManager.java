@@ -71,7 +71,6 @@ public class TaskManager implements TaskOperations {
         return null;
     }
 
-
     @Override
     public void removeTask(Task task) {
         taskList.remove(task);
@@ -91,6 +90,5 @@ public class TaskManager implements TaskOperations {
         }
         return task;
     }
-
 
 }

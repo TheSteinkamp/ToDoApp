@@ -29,7 +29,7 @@ public class ActionHandler implements ActionListener, MouseListener {
         if (e.getSource() instanceof JButton buttonClicked) {
 
             if (Objects.equals(buttonClicked.getText(), "Lägg till uppgift")) {
-                gui.resetFrame(gui.getAddTaskFrame());
+                //gui.resetFrame(gui.getAddTaskFrame());
                 gui.addTaskWindow(null);
                 System.out.println("Tryckte på lägg till");
 
@@ -75,33 +75,25 @@ public class ActionHandler implements ActionListener, MouseListener {
                 System.out.println("Tryckte på kalender");
 
             } else if (Objects.equals(buttonClicked.getText(), "Visa klarade uppgifter")) {
-                //gui.resetTextFields();
                 gui.updateGridPane(taskManager.showList("done"));
                 gui.createLabels("done");
                 buttonClicked.setText("Visa ej klara uppgifter");
-                //gui.getAddTaskFrame().dispose();
                 System.out.println("Tryckte på Visa klarade uppgifter");
 
             } else if (Objects.equals(buttonClicked.getText(), "Visa ej klara uppgifter")) {
-                //gui.resetTextFields();
                 gui.updateGridPane(taskManager.showList("not done"));
                 gui.createLabels("not done");
                 buttonClicked.setText("Visa klarade uppgifter");
-                //gui.getAddTaskFrame().dispose();
                 System.out.println("Tryckte på Visa ej klara uppgifter");
 
             } else if (Objects.equals(buttonClicked.getText(), "Visa alla uppgifter")) {
-                //gui.resetTextFields();
                 gui.updateGridPane(taskManager.showList("all"));
                 gui.createLabels("all");
-                //gui.getAddTaskFrame().dispose();
                 System.out.println("Tryckte på Visa alla uppgifter");
 
             } else if (Objects.equals(buttonClicked.getText(), "Visa i datumordning")) {
-                //gui.resetTextFields();
                 gui.updateGridPane(taskManager.showList("date"));
                 gui.createLabels("date");
-                //gui.getAddTaskFrame().dispose();
                 System.out.println("Tryckte på datumsortera uppgifter");
 
             } else if (Objects.equals(buttonClicked.getText(), "Spara")) {
@@ -133,7 +125,7 @@ public class ActionHandler implements ActionListener, MouseListener {
                 try {
                     taskManager.updateDatabase();
                     gui.resetTextFields();
-                    gui.updateGridPane(taskManager.getTaskList());
+                    gui.updateGridPane(taskManager.showList("all"));
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -158,7 +150,6 @@ public class ActionHandler implements ActionListener, MouseListener {
                 clickedLabel.setBackground(Color.GRAY);
                 clickedLabel.setOpaque(true);
             }
-
             lastClickedLabel = clickedLabel;
             gui.getMainPanel().revalidate();
             gui.getMainPanel().repaint();
